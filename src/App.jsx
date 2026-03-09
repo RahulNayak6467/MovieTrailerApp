@@ -10,16 +10,6 @@ import ShowMovieQueries from "./Components/ShowMovieQueries";
 import { motion } from "motion/react";
 
 function App() {
-  const { data: moviesData, isLoading } = useMovies();
-  const { data, isLoading: MovieLoading } = useMoviesDetails();
-  const { movieId, searchMovieQuery, handleQuery, isClicked, setIsClicked } =
-    useMovieContext();
-  const { data: searchData, isLoading: searchLoader } = useSearchQuery();
-
-  if (isLoading || MovieLoading || searchLoader) {
-    return <Loader />;
-  }
-
   const animation = {
     initial: {
       opacity: 0,
