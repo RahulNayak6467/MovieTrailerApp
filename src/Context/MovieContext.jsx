@@ -15,6 +15,7 @@ const MovieContextProvider = ({ children }) => {
   const [searchMovieQuery, setSearchMovieQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const [isClicked, setIsClicked] = useState("");
+  const [genreId, setGenreId] = useState(28);
 
   const handleQuery = (query) => {
     setSearchMovieQuery(query);
@@ -22,6 +23,10 @@ const MovieContextProvider = ({ children }) => {
 
   const handleClick = (id) => {
     setMovieId(id);
+  };
+
+  const handleGenre = (id) => {
+    setGenreId(id);
   };
 
   useEffect(() => {
@@ -39,6 +44,8 @@ const MovieContextProvider = ({ children }) => {
     debouncedQuery,
     isClicked,
     setIsClicked,
+    genreId,
+    handleGenre,
   };
   return (
     <MovieContext.Provider value={value}>{children}</MovieContext.Provider>

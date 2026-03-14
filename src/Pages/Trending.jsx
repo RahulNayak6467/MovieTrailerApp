@@ -1,8 +1,8 @@
-import { useMovieContext } from "../../Context/MovieContext";
-import useMoviesDetails from "../../CustomHooks/useMovieDetails";
-import MovieDetails from "../MovieDetails";
-import MovieGrid from "../MovieGrid";
 import { motion } from "motion/react";
+import useMoviesDetails from "../CustomHooks/useMovieDetails";
+import { useMovieContext } from "../Context/MovieContext";
+import MovieGrid from "../Components/MovieGrid";
+import MovieDetails from "../Components/MovieDetails";
 const animation = {
   initial: {
     opacity: 0,
@@ -12,7 +12,7 @@ const animation = {
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.2,
     },
   },
 };

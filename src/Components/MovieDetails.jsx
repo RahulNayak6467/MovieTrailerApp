@@ -79,6 +79,16 @@ function MovieDetails({ movieData, castData, similarMovies }) {
                 </span>
               </div>
             </div>
+            <div className="mt-6 hidden lg:block">
+              <p className="text-primary text-xl font-inter font-bold mb-3">
+                Similar Movies
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {similarMovies?.results?.slice(0, 4)?.map((movies) => (
+                  <SimilarMovies key={movies.id} similarMovies={movies} id={movies.id} />
+                ))}
+              </div>
+            </div>
             <button className="mt-4 w-full bg-primary rounded-2xl py-2 hover:bg-secondary cursor-pointer mx-auto">
               <div
                 onClick={() => handleTrailer(true)}
@@ -102,16 +112,6 @@ function MovieDetails({ movieData, castData, similarMovies }) {
             ))}
           </div>
         </div>
-        {/* <div className="mt-4">
-          <p className="text-primary text-center border-b pb-4 border-b-border font-bold font-inter text-3xl">
-            Similar Movies
-          </p>
-          <div className="grid grid-cols-5 gap-x-5 gap-y-5 mt-4 p-4">
-            {similarMovies?.results?.slice(0, 10)?.map((movies) => (
-              <SimilarMovies similarMovies={movies} id={movies.id} />
-            ))}
-          </div>
-        </div> */}
       </section>
       {showTrailer ? (
         <>

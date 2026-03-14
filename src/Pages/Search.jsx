@@ -1,11 +1,10 @@
-import { useMovieContext } from "../../Context/MovieContext";
-import useMoviesDetails from "../../CustomHooks/useMovieDetails";
-import { useEffect } from "react";
-import useSearchQuery from "../../CustomHooks/useSearchQuery";
-import MovieGrid from "../MovieGrid";
-import MovieDetails from "../MovieDetails";
-import ShowMovieQueries from "../ShowMovieQueries";
 import { motion } from "motion/react";
+import useMoviesDetails from "../CustomHooks/useMovieDetails";
+import { useMovieContext } from "../Context/MovieContext";
+import { useEffect } from "react";
+import useSearchQuery from "../CustomHooks/useSearchQuery";
+import MovieDetails from "../Components/MovieDetails";
+import ShowMovieQueries from "../Components/ShowMovieQueries";
 function Search() {
   const { searchMovieQuery, handleQuery, isClicked, movieId, setIsClicked } =
     useMovieContext();
@@ -51,17 +50,7 @@ function Search() {
           }
         />
       </div>
-      {/* {isClicked ? (
-        <div className="fixed inset-0 backdrop-blur-xs bg-black/10 z-50"></div>
-      ) : (
-        ""
-          )}
-                  {isClicked ? (
-           <div className="fixed inset-0 backdrop-blur-xs bg-black/10 z-50"></div>
-         ) : (
-           ""
-         )}
-       </div> */}
+
       {isClicked ? (
         <div className="fixed inset-0 black/60 backdrop-blur-xs z-50"></div>
       ) : (
