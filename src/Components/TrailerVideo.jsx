@@ -34,7 +34,7 @@ function TrailerVideo() {
       variants={animation}
       initial="initial"
       animate="final"
-      className=" bg-card w-fit z-999 relative border-2 border-border rounded-2xl shadow-[0_10px_25px_rgba(99,102,241,0.35)]  border-primary "
+      className=" bg-card  z-999 max-[1200px]:w-[80%] mx-auto relative border-2 border-border rounded-2xl shadow-[0_10px_25px_rgba(99,102,241,0.35)]  border-primary "
     >
       <div className="flex justify-center w-7xl  aspect-video mx-auto p-2 border-border relative">
         <button

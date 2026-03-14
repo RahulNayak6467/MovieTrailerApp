@@ -27,7 +27,7 @@ const MovieContextProvider = ({ children }) => {
   useEffect(() => {
     const timeDelay = setTimeout(() => {
       setDebouncedQuery(searchMovieQuery);
-    }, 300);
+    }, 500);
     return () => clearTimeout(timeDelay);
   }, [searchMovieQuery]);
 
