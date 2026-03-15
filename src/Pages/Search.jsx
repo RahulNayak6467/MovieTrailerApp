@@ -6,7 +6,7 @@ import useSearchQuery from "../CustomHooks/useSearchQuery";
 import MovieDetails from "../Components/MovieDetails";
 import ShowMovieQueries from "../Components/ShowMovieQueries";
 function Search() {
-  const { searchMovieQuery, handleQuery, isClicked, movieId, setIsClicked } =
+  const { searchMovieQuery, handleQuery, isClicked, movieId, setIsClicked } =``
     useMovieContext();
 
   const { data, isLoading } = useMoviesDetails();
@@ -46,14 +46,16 @@ function Search() {
   };
 
   return (
-    <div className="flex-col justify-center">
-      <div className="flex justify-center items-center">
+    <div className="flex-col justify-center" aria-label="Search movies section">
+      <div className="flex justify-center items-center" role="search">
         <input
           onClick={() => setIsClicked(true)}
           onChange={(e) => handleQuery(e.target.value)}
           value={searchMovieQuery}
           type="text"
           placeholder="Enter a movie Name"
+          aria-label="Search for a movie by title"
+          autoComplete="off"
           className={
             isClicked
               ? "border-2 border-border text-primary bg-card py-4 w-200 px-4 h-fit rounded-full mt-20 relative z-999 hover:scale-110 transition-all max-[1000px]:w-[90%]"

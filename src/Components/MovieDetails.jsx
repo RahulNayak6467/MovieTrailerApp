@@ -35,7 +35,7 @@ function MovieDetails({ movieData, castData, similarMovies }) {
                   ? `https://image.tmdb.org/t/p/w500${movieData.poster_path}`
                   : '"https://via.placeholder.com/500x750?text=No+Poster"'
               }
-              alt={movieData?.title}
+              alt={movieData?.title || "Movie poster"}
             />
           </div>
           <div className="md:w-7/12 p-4">
@@ -93,7 +93,11 @@ function MovieDetails({ movieData, castData, similarMovies }) {
                 ))}
               </div>
             </div>
-            <button className="mt-4 w-full bg-primary rounded-2xl py-2 hover:bg-secondary cursor-pointer mx-auto">
+            <button
+              type="button"
+              className="mt-4 w-full bg-primary rounded-2xl py-2 hover:bg-secondary cursor-pointer mx-auto"
+              aria-label={`Watch trailer for ${movieData?.title || "this movie"}`}
+            >
               <div
                 onClick={() => handleTrailer(true)}
                 className="w-full flex gap-2 justify-center items-center"

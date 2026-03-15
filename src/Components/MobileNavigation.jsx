@@ -26,10 +26,16 @@ function MobileNavigation({ isClicked, handleClick }) {
       initial="hidden"
       animate="visible"
       className={isClicked ? "flex" : ""}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation menu"
     >
-      <div className="inset-0 fixed bg-black/60 backdrop-blur-xl z-50 overflow-hidden"></div>
+      <div
+        className="inset-0 fixed bg-black/60 backdrop-blur-xl z-50 overflow-hidden"
+        aria-hidden="true"
+      ></div>
 
-      <div className="w-[70%] max-w-xs h-full fixed left-0 top-0 z-999 border-r border-border bg-background  shadow-2xl rounded-r-2xl py-8 px-6 flex flex-col">
+      <div className="w-[70%] max-w-xs h-full fixed left-0 top-0 z-999 border-r border-border bg-background shadow-2xl rounded-r-2xl py-8 px-6 flex flex-col">
         <X
           onClick={() => handleClick(false)}
           size={32}

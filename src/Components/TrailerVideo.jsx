@@ -44,12 +44,13 @@ function TrailerVideo() {
           <X size={18} className="text-white" />
         </button>
         {trailerData ? (
-          <iframe
-            className="w-full h-full rounded-2xl"
-            src={`https://www.youtube.com/embed/${trailerData.key}`}
-            title="Movie Trailer"
-            allowFullScreen
-          />
+        <iframe
+          className="w-full h-full rounded-2xl"
+          src={`https://www.youtube.com/embed/${trailerData.key}`}
+          title={`Trailer for ${trailerData?.name || "selected movie"}`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
         ) : (
           <div className="text-center mt-40 ">
             <p className="text-lg font-semibold text-primary">
