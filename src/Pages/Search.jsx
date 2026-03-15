@@ -5,12 +5,13 @@ import { useEffect } from "react";
 import useSearchQuery from "../CustomHooks/useSearchQuery";
 import MovieDetails from "../Components/MovieDetails";
 import ShowMovieQueries from "../Components/ShowMovieQueries";
-function Search() {
-  const { searchMovieQuery, handleQuery, isClicked, movieId, setIsClicked } =``
-    useMovieContext();
 
+function Search() {
+  const { searchMovieQuery, handleQuery, isClicked, movieId, setIsClicked } =
+    useMovieContext();
   const { data, isLoading } = useMoviesDetails();
   const { data: searchData, isLoading: searchMovieLoading } = useSearchQuery();
+
   useEffect(() => {
     window.addEventListener("load", function () {
       return <Loader />;
@@ -24,13 +25,13 @@ function Search() {
       }
     };
     window.addEventListener("keydown", keyEnter);
-
     return () => window.removeEventListener("keydown", keyEnter);
   }, [setIsClicked]);
 
   if (isLoading || searchMovieLoading) {
     return <Loader />;
   }
+
   const animation = {
     initial: {
       opacity: 0,
@@ -46,16 +47,14 @@ function Search() {
   };
 
   return (
-    <div className="flex-col justify-center" aria-label="Search movies section">
-      <div className="flex justify-center items-center" role="search">
+    <div className="flex-col justify-center">
+      <div className="flex justify-center items-center">
         <input
           onClick={() => setIsClicked(true)}
           onChange={(e) => handleQuery(e.target.value)}
           value={searchMovieQuery}
           type="text"
           placeholder="Enter a movie Name"
-          aria-label="Search for a movie by title"
-          autoComplete="off"
           className={
             isClicked
               ? "border-2 border-border text-primary bg-card py-4 w-200 px-4 h-fit rounded-full mt-20 relative z-999 hover:scale-110 transition-all max-[1000px]:w-[90%]"
@@ -63,7 +62,6 @@ function Search() {
           }
         />
       </div>
-
       {isClicked ? (
         <div className="fixed inset-0 black/60 backdrop-blur-xs z-50"></div>
       ) : (
