@@ -30,7 +30,11 @@ function MovieDetails({ movieData, castData, similarMovies }) {
           <div className="md:w-5/12">
             <img
               className="rounded-2xl w-full h-full object-cover"
-              src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`}
+              src={
+                movieData.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movieData.poster_path}`
+                  : '"https://via.placeholder.com/500x750?text=No+Poster"'
+              }
               alt={movieData?.title}
             />
           </div>
@@ -79,13 +83,13 @@ function MovieDetails({ movieData, castData, similarMovies }) {
                 </span>
               </div>
             </div>
-            <div className="mt-6 hidden lg:block">
-              <p className="text-primary text-xl font-inter font-bold mb-3">
-                Similar Movies
+            <div className="mt-4 border-2 border-border bg-card p-2 rounded-2xl">
+              <p className="text-2xl text-primary font-inter font-bold mb-2 ">
+                Top Cast
               </p>
-              <div className="grid grid-cols-2 gap-4">
-                {similarMovies?.results?.slice(0, 4)?.map((movies) => (
-                  <SimilarMovies key={movies.id} similarMovies={movies} id={movies.id} />
+              <div className="h-fit grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 mt-3 gap-y-4">
+                {castData?.cast.slice(0, 10).map((cast) => (
+                  <TopCast key={cast.id} castData={cast} />
                 ))}
               </div>
             </div>
@@ -100,16 +104,6 @@ function MovieDetails({ movieData, castData, similarMovies }) {
                 </p>
               </div>
             </button>
-          </div>
-        </div>
-        <div className="mt-4 border-2 border-border bg-card p-4 rounded-2xl">
-          <p className="text-2xl text-primary font-inter font-bold mb-2 ">
-            Top Cast
-          </p>
-          <div className="h-fit grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 mt-3 gap-y-4">
-            {castData?.cast.slice(0, 10).map((cast) => (
-              <TopCast key={cast.id} castData={cast} />
-            ))}
           </div>
         </div>
       </section>

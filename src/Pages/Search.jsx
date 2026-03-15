@@ -17,6 +17,17 @@ function Search() {
     });
   }, []);
 
+  useEffect(() => {
+    const keyEnter = (e) => {
+      if (e.key === "Enter") {
+        setIsClicked(false);
+      }
+    };
+    window.addEventListener("keydown", keyEnter);
+
+    return () => window.removeEventListener("keydown", keyEnter);
+  }, [setIsClicked]);
+
   if (isLoading || searchMovieLoading) {
     return <Loader />;
   }

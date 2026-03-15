@@ -33,7 +33,11 @@ function MovieDisplay({ moviesData }) {
       <div>
         <img
           className="h-40 w-full object-cover border border-zinc-500 rounded-2xl hover:scale-105 transition-all  "
-          src={`https://image.tmdb.org/t/p/w500${moviesData.poster_path}`}
+          src={
+            moviesData.poster_path
+              ? `https://image.tmdb.org/t/p/w500${moviesData.poster_path}`
+              : "https://via.placeholder.com/500x750?text=No+Poster"
+          }
           alt={moviesData.title}
         />
       </div>
